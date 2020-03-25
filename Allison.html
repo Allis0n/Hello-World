@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<style>
+ .w3-container{
+   align:center;
+ }
+ .inputN{
+   padding:8px;
+   display:block;
+   border:none;
+   border-bottom:1px solid #ccc;
+   width:120px;
+ }
+ .w3-btn {
+   width:120px;
+   font-size:15px
+ }
+ .w3-text-brown{
+  width:120px;
+  font-size:15px
+ }
+ span {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;  
+  background-color: yellow; 
+ }
+/*  .result{ */
+/*    visibility: visiblility; */
+/*  } */
+</style>
+<script type="text/javascript">
+  function myFunction() {
+	  document.getElementById("myP").style.visibility = "hidden";;
+  }
+ 
+</script>
+<div class="w3-card-4">
+  <div class="w3-container w3-brown">
+    <h2>Ryan’s Calculator</h2>
+  </div>
+  <form class="w3-container" >
+    <p>      
+     <label class="w3-text-brown"><b>活∕定存利率(%)：</b></label>
+     <input class="inputN w3-border w3-sand" type="number" min="0" placeholder="1.2" id="net">
+    </p>
+    <p>
+      <input class="w3-radio" type="radio" name="months" value="12" checked="true">
+      <label class="w3-text-brown">12個月</label>
+      <input class="w3-radio" type="radio" name="months" value="6" >
+      <label class="w3-text-brown">6個月</label>
+      <input class="w3-radio" type="radio" name="months" value="3" >
+      <label class="w3-text-brown">3個月</label>
+      <input class="w3-radio" type="radio" name="months" value="1" >
+      <label class="w3-text-brown">1個月</label>
+    </p>
+    <p>      
+     <label class="w3-text-brown"><b>外幣匯率：</b></label>
+     <input class="inputN w3-border w3-sand" min="0" placeholder="30.2">
+    </p>
+    <p>
+     <label class="w3-text-brown"><b>外幣單位：</b></label>
+     <input class="inputN w3-border w3-sand" min="0" placeholder="1000">
+    </p>
+    <p>
+      <input class="w3-check" name="depositTime" type="checkbox" checked="checked">
+      <label>期滿</label>
+      <input class="w3-check" name="depositTime" type="checkbox" >
+      <label>中途解約</label>
+    </p>
+    <p id="myP">This is a p element.</p>
+    
+    
+    <p id="rF" class="result" >
+     <label class="w3-text-brown"><b>期滿：</b></label>
+     <span id="spFC"></span>
+     <label class="w3-text-brown"><b>&#8780; NT：</b></label>
+     <span id="spFCNT"></span>
+    </p>
+    
+    <p id="rT" class="result">
+     <label class="w3-text-brown" ><b>中途解約：</b></label>
+     <span id="spTerminalFC" ></span>
+     <label class="w3-text-brown" ><b>&#8780; NT：</b></label>
+     <span id="spTerminalNT" ></span>
+    </p>
+    
+  
+    
+     
+    
+    
+    
+   
+     
+     <p>
+       <button class="w3-btn w3-brown" onclick="myFunction()">Go</button>
+       <button type="reset" class="w3-ripple w3-btn"><b>Reset</b></button>	 
+	   <button class="w3-btn w3-light-blue"
+             onClick="window.open('https://www.esunbank.com.tw/bank/personal/deposit/rate/forex/foreign-exchange-rates');">
+	                   匯／利率參考
+	   </button>
+     </p>
+  </form>
+ </div> 
+</body>
+</html>
+
+    
+    
+    
+    
+
+
+
