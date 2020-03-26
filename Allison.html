@@ -14,12 +14,12 @@
    padding:8px;
    display:inline;
    border:none;
-   width:80px;
+   width:90px;
    font-size:15px;
    text-align: center;
  }
  .w3-btn{
-   width:80px;
+   width:90px;
    font-size:15px;
    text-align: center;
    color: white;
@@ -28,6 +28,9 @@
  .rResult {
   padding: 8px;
   font-size:15px;
+ }
+ .w3-s{
+   BACKGROUND-COLOR: transparent;
  }
 
 </style>
@@ -46,7 +49,6 @@
 	  }
 
 	  var vFcUnit= parseFloat(document.getElementById("fcUnit").value);
-	  alert(vN);
 	  console.log(vN);
 	  
 	  if(isNaN(vN) || isNaN(vFC) || isNaN(vFcUnit)){
@@ -144,16 +146,18 @@
     </p>
     <p id="rF" class="result" >
      <label class=" "><b>期滿利息：</b></label>
-     <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number" id="iFC" readOnly="true">
+     <input class="rResult w3-s inputN w3-round" name="rResult1" type="number" id="iFC" readOnly="true">
+     <p/>
      <label class=" "><b>&#8780; NT：</b></label>
-     <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number" id="iFCNT" readOnly="true">
+     <input class="rResult w3-s inputN w3-round" name="rResult1" type="number" id="iFCNT" readOnly="true">
     </p>
     
     <p id="rT" class="result">
      <label class=" " ><b>中途解約利息：</b></label>
-     <input class="rResult w3-sand inputN w3-round" name="rResult1"  type="number" id="iTerminalFC" readOnly="true">
+     <input class="rResult w3-s inputN w3-round" name="rResult1"  type="number" id="iTerminalFC" readOnly="true">
+     <p/>
      <label class=" "><b>&#8780; NT：</b></label>
-     <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number"  id="iTerminalNT" readOnly="true">
+     <input class="rResult w3-s inputN w3-round" name="rResult1" type="text"  id="iTerminalNT" readOnly="true">
     </p>
     
      <p>
