@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<title>Allison.Wei</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<body >
+<style>
+ .w3-container{
+   align:center;
+ }
+ .inputN{
+   padding:8px;
+   display:inline;
+   border:none;
+   width:100px;
+   font-size:15px;
+   text-align: center;
+ }
+ .w3-btn{
+   width:120px;
+   font-size:15px;
+   text-align: center;
+   color: white;
+ }
+
+ .rResult {
+  padding: 8px;
+  font-size:15px;
+ }
+
+</style>
+<script type="text/javascript">
+  function hi(){
+	  alert("Hello, Ryan!");
+	 
+ };
+ 
+  function myFunction(){
+	  
+	  var vN= parseFloat(document.getElementById("net").value);
+	  var vFC= parseFloat(document.getElementById("fc").value);
+	  if(document.getElementById("fcUnit").value==null || document.getElementById("fcUnit").value==""){
+		  document.getElementById("fcUnit").value=1000;
+	  }
+
+	  var vFcUnit= parseFloat(document.getElementById("fcUnit").value);
+	  alert(vN);
+	  console.log(vN);
+	  
+	  if(isNaN(vN) || isNaN(vFC) || isNaN(vFcUnit)){
+		  alert("缺少必要條件請輸入利率/匯率,只接受數字或小數");
+		  return;
+	  }else{
+		  //取得月份
+		  var radios = document.getElementsByName('months');
+		  var month;
+		  var valueFC;
+		  var valueNT;
+		  for(var i =0;i<radios.length;i++){
+			  if(radios[i].checked){
+				  month= parseFloat(radios[i].value);
+				  break;
+			  }
+		  }
+		  //期滿
+		  if(document.getElementById("ckD").checked ){
+			  valueFC=document.getElementById("iFC");
+			  valueNT=document.getElementById("iFCNT"); 
+			  operation(true,vN,vFC,vFcUnit,month,valueFC,valueNT);
+		  } 
+		  //中途解約
+		  if(document.getElementById("ckT").checked){
+			  valueFC=document.getElementById("iTerminalFC");
+			  valueNT=document.getElementById("iTerminalNT"); 
+			  operation(false,vN,vFC,vFcUnit,month,valueFC,valueNT);
+		  }
+	}
+  };
+ 
+  function operation(type,vN,vFC,vFcUnit,month,resultFC,resultNT){
+	  var sumFC ;
+	  var sumNT ;
+	 
+	  if(type){
+		  //期滿
+		  sumFC= vFcUnit*(vN/100)*(month/12);
+		  sumNT=sumFC*vFC;
+	  }else{
+		  if(month==1){
+			  sumFC=0;
+			  sumNT=0;
+		  }else{
+			  sumFC= vFcUnit*(vN/100)*0.8*(month/12);
+			  sumNT=sumFC*vFC;
+		  }
+	  }
+	  resultFC.value=sumFC;
+	  resultNT.value=sumNT;
+  };
+
+</script>
+<div class="w3-theme-l4">
+	   
+  <div class="w3-container w3-theme-l1">
+    <h2>Ryan’s Calculator</h2>
+  </div>
+  <form class="w3-container" name="rForm">
+    <p>      
+     <label class=" "><b>活∕定存利率(%)：</b></label>
+     <input class="inputN w3-round  w3-sand " type="number" min="0" placeholder="1.2" id="net" required=true;>
+     <input class="inputN w3-round w3-pale-red "  readonly
+             onClick="window.open('https://www.esunbank.com.tw/bank/personal/deposit/rate/foreign/deposit-rate');"
+	                   value="利率參考">
+	  
+    </p>
+    <p>
+      <input class="w3-radio" type="radio" name="months" value="12" checked="true">
+      <label class=" ">12個月</label>
+      <input class="w3-radio" type="radio" name="months" value="6" >
+      <label class=" ">6個月</label>
+      <input class="w3-radio" type="radio" name="months" value="3" >
+      <label class=" ">3個月</label>
+      <input class="w3-radio" type="radio" name="months" value="1" >
+      <label class=" ">1個月</label>
+    </p>
+    <p>      
+     <label class=" "><b>外幣匯率：</b></label>
+     <input class="inputN w3-round w3-sand" type="number" min="0" placeholder="30.2" id="fc" >
+     <input class="inputN w3-round w3-pale-red " STYLE="background-color:#ADD8E6;" readonly
+             onClick="window.open('https://www.esunbank.com.tw/bank/personal/deposit/rate/forex/foreign-exchange-rates');"
+	                   value="匯率參考">
+    </p>
+    <p>
+     <label class=" "><b>外幣單位：</b></label>
+     <input class="inputN w3-round w3-sand" type="number" min="0" placeholder="1000" id="fcUnit" >
+    </p>
+    <p>
+      <input class="w3-check" name="depositTime" type="checkbox" id="ckD" checked="checked">
+      <label class=" "><b>期滿利息</b></label>
+      <input class="w3-check" name="depositTime" type="checkbox" id="ckT" >
+      <label class=" " ><b>中途解約利息</b></label>
+    </p>
+    <p id="rF" class="result" >
+     <label class=" "><b>期滿利息：</b></label>
+     <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number" id="iFC" readOnly="true">
+     <label class=" "><b>&#8780; NT：</b></label>
+     <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number" id="iFCNT" readOnly="true">
+    </p>
+    
+    <p id="rT" class="result">
+     <label class=" " ><b>中途解約利息：</b></label>
+     <input class="rResult w3-sand inputN w3-round" name="rResult1"  type="number" id="iTerminalFC" readOnly="true">
+     <label class=" "><b>&#8780; NT：</b></label>
+     <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number"  id="iTerminalNT" readOnly="true">
+    </p>
+    
+     <p>
+       <input class="w3-btn  w3-round" type="button" value="Go" onclick="myFunction()" STYLE="background-color:#72A4D2;">
+       <input class="w3-btn w3-pale-red  w3-round"  type="reset" value="Reset" >
+	   <input class="w3-btn w3-round" type="button" value="Ryan" onclick="hi()" STYLE="background-color:#FF8C00;">
+    </p>
+    
+    
+    </form>
+ </div> 
+ 
+ 
+ 
+ </body>
+</html>
+
+
