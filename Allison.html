@@ -31,6 +31,7 @@
  }
  .w3-s{
    BACKGROUND-COLOR: transparent;
+   size:6;
  }
 
 </style>
@@ -98,6 +99,8 @@
 			  sumNT=sumFC*vFC;
 		  }
 	  }
+      sumFC= Math.round(sumFC*100)/100;
+      sumNT= Math.round(sumNT*100)/100;
 	  resultFC.value=sumFC;
 	  resultNT.value=sumNT;
   };
