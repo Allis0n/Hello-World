@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<body >
+<body class="w3-theme-l4" >
 <style>
  .w3-container{
    align:center;
@@ -14,12 +14,12 @@
    padding:8px;
    display:inline;
    border:none;
-   width:100px;
+   width:80px;
    font-size:15px;
    text-align: center;
  }
  .w3-btn{
-   width:120px;
+   width:80px;
    font-size:15px;
    text-align: center;
    color: white;
@@ -50,10 +50,10 @@
 	  console.log(vN);
 	  
 	  if(isNaN(vN) || isNaN(vFC) || isNaN(vFcUnit)){
-		  alert("¯Ê¤Ö¥²­n±ø¥ó½Ğ¿é¤J§Q²v/¶×²v,¥u±µ¨ü¼Æ¦r©Î¤p¼Æ");
+		  alert("ç¼ºå°‘å¿…è¦æ¢ä»¶è«‹è¼¸å…¥åˆ©ç‡/åŒ¯ç‡,åªæ¥å—æ•¸å­—æˆ–å°æ•¸");
 		  return;
 	  }else{
-		  //¨ú±o¤ë¥÷
+		  //å–å¾—æœˆä»½
 		  var radios = document.getElementsByName('months');
 		  var month;
 		  var valueFC;
@@ -64,13 +64,13 @@
 				  break;
 			  }
 		  }
-		  //´Áº¡
+		  //æœŸæ»¿
 		  if(document.getElementById("ckD").checked ){
 			  valueFC=document.getElementById("iFC");
 			  valueNT=document.getElementById("iFCNT"); 
 			  operation(true,vN,vFC,vFcUnit,month,valueFC,valueNT);
 		  } 
-		  //¤¤³~¸Ñ¬ù
+		  //ä¸­é€”è§£ç´„
 		  if(document.getElementById("ckT").checked){
 			  valueFC=document.getElementById("iTerminalFC");
 			  valueNT=document.getElementById("iTerminalNT"); 
@@ -84,7 +84,7 @@
 	  var sumNT ;
 	 
 	  if(type){
-		  //´Áº¡
+		  //æœŸæ»¿
 		  sumFC= vFcUnit*(vN/100)*(month/12);
 		  sumNT=sumFC*vFC;
 	  }else{
@@ -101,58 +101,58 @@
   };
 
 </script>
-<div class="w3-theme-l4">
+<div >
 	   
   <div class="w3-container w3-theme-l1">
-    <h2>Ryan¡¦s Calculator</h2>
+    <h2>Ryanâ€™s Calculator</h2>
   </div>
   <form class="w3-container" name="rForm">
     <p>      
-     <label class=" "><b>¬¡¢A©w¦s§Q²v(%)¡G</b></label>
+     <label class=" "><b>æ´»âˆ•å®šå­˜åˆ©ç‡(%)ï¼š</b></label>
      <input class="inputN w3-round  w3-sand " type="number" min="0" placeholder="1.2" id="net" required=true;>
      <input class="inputN w3-round w3-pale-red "  readonly
              onClick="window.open('https://www.esunbank.com.tw/bank/personal/deposit/rate/foreign/deposit-rate');"
-	                   value="§Q²v°Ñ¦Ò">
+	                   value="åˆ©ç‡åƒè€ƒ">
 	  
     </p>
     <p>
       <input class="w3-radio" type="radio" name="months" value="12" checked="true">
-      <label class=" ">12­Ó¤ë</label>
+      <label class=" ">12å€‹æœˆ</label>
       <input class="w3-radio" type="radio" name="months" value="6" >
-      <label class=" ">6­Ó¤ë</label>
+      <label class=" ">6å€‹æœˆ</label>
       <input class="w3-radio" type="radio" name="months" value="3" >
-      <label class=" ">3­Ó¤ë</label>
+      <label class=" ">3å€‹æœˆ</label>
       <input class="w3-radio" type="radio" name="months" value="1" >
-      <label class=" ">1­Ó¤ë</label>
+      <label class=" ">1å€‹æœˆ</label>
     </p>
     <p>      
-     <label class=" "><b>¥~¹ô¶×²v¡G</b></label>
+     <label class=" "><b>å¤–å¹£åŒ¯ç‡ï¼š</b></label>
      <input class="inputN w3-round w3-sand" type="number" min="0" placeholder="30.2" id="fc" >
      <input class="inputN w3-round w3-pale-red " STYLE="background-color:#ADD8E6;" readonly
              onClick="window.open('https://www.esunbank.com.tw/bank/personal/deposit/rate/forex/foreign-exchange-rates');"
-	                   value="¶×²v°Ñ¦Ò">
+	                   value="åŒ¯ç‡åƒè€ƒ">
     </p>
     <p>
-     <label class=" "><b>¥~¹ô³æ¦ì¡G</b></label>
+     <label class=" "><b>å¤–å¹£å–®ä½ï¼š</b></label>
      <input class="inputN w3-round w3-sand" type="number" min="0" placeholder="1000" id="fcUnit" >
     </p>
     <p>
       <input class="w3-check" name="depositTime" type="checkbox" id="ckD" checked="checked">
-      <label class=" "><b>´Áº¡§Q®§</b></label>
+      <label class=" "><b>æœŸæ»¿åˆ©æ¯</b></label>
       <input class="w3-check" name="depositTime" type="checkbox" id="ckT" >
-      <label class=" " ><b>¤¤³~¸Ñ¬ù§Q®§</b></label>
+      <label class=" " ><b>ä¸­é€”è§£ç´„åˆ©æ¯</b></label>
     </p>
     <p id="rF" class="result" >
-     <label class=" "><b>´Áº¡§Q®§¡G</b></label>
+     <label class=" "><b>æœŸæ»¿åˆ©æ¯ï¼š</b></label>
      <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number" id="iFC" readOnly="true">
-     <label class=" "><b>&#8780; NT¡G</b></label>
+     <label class=" "><b>&#8780; NTï¼š</b></label>
      <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number" id="iFCNT" readOnly="true">
     </p>
     
     <p id="rT" class="result">
-     <label class=" " ><b>¤¤³~¸Ñ¬ù§Q®§¡G</b></label>
+     <label class=" " ><b>ä¸­é€”è§£ç´„åˆ©æ¯ï¼š</b></label>
      <input class="rResult w3-sand inputN w3-round" name="rResult1"  type="number" id="iTerminalFC" readOnly="true">
-     <label class=" "><b>&#8780; NT¡G</b></label>
+     <label class=" "><b>&#8780; NTï¼š</b></label>
      <input class="rResult w3-sand inputN w3-round" name="rResult1" type="number"  id="iTerminalNT" readOnly="true">
     </p>
     
@@ -170,5 +170,3 @@
  
  </body>
 </html>
-
-
